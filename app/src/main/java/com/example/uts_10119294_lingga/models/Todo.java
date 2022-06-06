@@ -8,7 +8,6 @@ public class Todo {
     private String tanggal;
     private String description;
 
-
     public void setTodo(String todo) {
         this.todo = todo;
     }
