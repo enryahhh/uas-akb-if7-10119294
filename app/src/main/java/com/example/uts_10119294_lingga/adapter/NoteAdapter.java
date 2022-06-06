@@ -10,35 +10,36 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.uts_10119294_lingga.MainActivity;
 import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.models.Todo;
-import com.example.uts_10119294_lingga.presenter.TodoPresenter;
+import com.example.uts_10119294_lingga.models.Note;
+import com.example.uts_10119294_lingga.presenter.NotePresenter;
 import com.example.uts_10119294_lingga.views.fragments.BottomSheetDialog;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder>{
-    private List<Todo> tes;
-    private TodoPresenter presenter;
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder>{
+    private List<Note> tes;
+    private NotePresenter presenter;
     private FragmentManager fm;
-    public class TodoViewHolder extends RecyclerView.ViewHolder {
+    public class NoteViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView text_todo;
-        public TodoViewHolder(View itemView) {
+        public TextView text_judul,text_tgl,text_kategori,text_isi;
+        public NoteViewHolder(View itemView) {
             super(itemView);
-            text_todo = itemView.findViewById(R.id.text_todo);
+            text_judul = itemView.findViewById(R.id.text_judul);
+            text_tgl = itemView.findViewById(R.id.text_tgl);
+            text_kategori = itemView.findViewById(R.id.text_kategori);
+            text_isi = itemView.findViewById(R.id.text_isi);
         }
     }
 
     private final int mItemCount;
 
-    public TodoAdapter(List<Todo> items,TodoPresenter presenter,FragmentManager fm) {
+    public NoteAdapter(List<Note> items, NotePresenter presenter, FragmentManager fm) {
         tes = items;
         mItemCount = items.size();
         this.presenter = presenter;
@@ -48,7 +49,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
 
     @NonNull
     @Override
-    public TodoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -56,13 +57,19 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         View todoView = inflater.inflate(R.layout.todo_item, parent, false);
 
         // Return a new holder instance
-        TodoViewHolder viewHolder = new TodoViewHolder(todoView);
+        NoteViewHolder viewHolder = new NoteViewHolder(todoView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TodoViewHolder holder, int position) {
-        holder.text_todo.setText(tes.get(position).getTodo());
+    public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
+        Note note = tes.get(position);
+        holder.text_judul.setText(note.getJudul());
+        holder.text_tgl.setText(note.getTanggal());
+        holder.text_kategori.setText(note.getKategori());
+        holder.text_isi.setText(note.getIsi());
+        System.out.println(note.getTanggal());
+
         holder.itemView.findViewById(R.id.btn_delete).setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
             builder.setTitle("Delete Task");
@@ -71,8 +78,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            presenter.removeTodo(tes.get(holder.getAdapterPosition()).getId());
-                            System.out.println(tes.get(holder.getAdapterPosition()).getId());
+                            presenter.removeTodo(note.getId());
+                            System.out.println(note.getId());
                             notifyItemRemoved(holder.getAdapterPosition());
                             dialog.dismiss();
 
@@ -89,12 +96,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         });
 
         holder.itemView.findViewById(R.id.btn_edit).setOnClickListener(view -> {
-            Todo todo = tes.get(position);
             Bundle bundle = new Bundle();
-            bundle.putSerializable("todo", (Serializable) todo);
-            bundle.putInt("id", todo.getId());
-//            bundle.putString("todo", todo.getTodo());
-//            bundle.putString("desc", todo.getDescription());
+            bundle.putSerializable("note", (Serializable) note);
+            bundle.putInt("id", note.getId());
             BottomSheetDialog inputView = new BottomSheetDialog();
             inputView.setArguments(bundle);
             inputView.show(fm,inputView.getTag());
@@ -107,8 +111,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         return mItemCount;
     }
 
-    public void setTodoList(List<Todo> todos){
-        this.tes = todos;
+    public void setTodoList(List<Note> notes){
+        this.tes = notes;
         notifyDataSetChanged();
     }
 }

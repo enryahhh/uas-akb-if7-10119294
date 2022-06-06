@@ -12,30 +12,29 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.uts_10119294_lingga.adapter.TodoAdapter;
-import com.example.uts_10119294_lingga.contract.TodoContract;
+import com.example.uts_10119294_lingga.adapter.NoteAdapter;
+import com.example.uts_10119294_lingga.contract.NoteContract;
 import com.example.uts_10119294_lingga.databinding.FragmentDashboardBinding;
 import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
-import com.example.uts_10119294_lingga.models.Todo;
-import com.example.uts_10119294_lingga.presenter.TodoPresenter;
+import com.example.uts_10119294_lingga.models.Note;
+import com.example.uts_10119294_lingga.presenter.NotePresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class DashboardFragment extends Fragment implements TodoContract.View , DialogCloseListener {
+public class DashboardFragment extends Fragment implements NoteContract.View , DialogCloseListener {
 
     private FragmentDashboardBinding binding;
     private RecyclerView recyclerView;
-    private TodoAdapter adapter;
-    private List<Todo> todos;
-    private TodoPresenter presenter;
+    private NoteAdapter adapter;
+    private List<Note> notes;
+    private NotePresenter presenter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        presenter = new TodoPresenter(this,getContext());
+        presenter = new NotePresenter(this,getContext());
 //        final TextView textView = binding.textDashboard;
 //        textView.setText("Dashbor");
         return root;
@@ -66,10 +65,10 @@ public class DashboardFragment extends Fragment implements TodoContract.View , D
         binding = null;
     }
 
-//    private List<Todo> dummyTodo(){
-//        List<Todo> todosnya = new ArrayList<>();
+//    private List<Note> dummyTodo(){
+//        List<Note> todosnya = new ArrayList<>();
 //        for(int i=1;i<=5;i++){
-//            Todo todo = new Todo();
+//            Note todo = new Note();
 //            todo.setTodo("coba");
 //            todo.setDescription("tes aja");
 //            todosnya.add(todo);
@@ -83,9 +82,9 @@ public class DashboardFragment extends Fragment implements TodoContract.View , D
     }
 
     @Override
-    public void fetchTodo(List<Todo> items) {
-        todos = items;
-        adapter = new TodoAdapter(todos,presenter,getChildFragmentManager());
+    public void fetchTodo(List<Note> items) {
+        notes = items;
+        adapter = new NoteAdapter(notes,presenter,getChildFragmentManager());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

@@ -10,22 +10,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Input Todo"
+        android:text="Catatanku"
         android:textSize="25sp" />
 
     <EditText
+        android:layout_marginVertical="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_todo"
-        android:hint="Todo">
+        android:id="@+id/inpt_judul"
+        android:hint="Judul">
 
     </EditText>
-
     <EditText
+        android:id="@+id/inpt_kategori"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/descrip"
-        android:hint="Deskripsi"
+        android:hint="Kategori"
+        android:layout_marginVertical="7dp"
+        />
+
+    <EditText
+        android:id="@+id/isi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
+        android:hint="Isi Catatan"
         >
 
     </EditText>

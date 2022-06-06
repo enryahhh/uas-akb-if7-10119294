@@ -1,54 +1,45 @@
 package com.example.uts_10119294_lingga.views.fragments;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
-import com.example.uts_10119294_lingga.MainActivity;
 import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.contract.TodoContract;
-import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
-import com.example.uts_10119294_lingga.models.Todo;
-import com.example.uts_10119294_lingga.presenter.TodoPresenter;
+import com.example.uts_10119294_lingga.contract.NoteContract;
+import com.example.uts_10119294_lingga.models.Note;
+import com.example.uts_10119294_lingga.presenter.NotePresenter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
-public class BottomSheetDialog extends BottomSheetDialogFragment  implements TodoContract.View{
+public class BottomSheetDialog extends BottomSheetDialogFragment  implements NoteContract.View{
 
-    private TodoPresenter presenter;
-    private EditText inptd;
-    private EditText inptdesc;
+    private NotePresenter presenter;
+    private EditText inpt_judul,inpt_kategori,inpt_isi;
     private Button btnadd;
-    private Todo todoo;
+    private Note note;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable
             ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.bottom_sheet_layout,
                 container, false);
-         inptd = v.findViewById(R.id.text_todo);
-         inptdesc = v.findViewById(R.id.descrip);
+         inpt_judul = v.findViewById(R.id.inpt_judul);
+         inpt_kategori = v.findViewById(R.id.inpt_kategori);
+         inpt_isi = v.findViewById(R.id.isi);
          btnadd = v.findViewById(R.id.btn_simpan);
 
-        presenter = new TodoPresenter(this,getContext());
+        presenter = new NotePresenter(this,getContext());
 
 
         return v;
@@ -58,34 +49,37 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Tod
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         boolean isUpdate = false;
-        inptd = requireView().findViewById(R.id.text_todo);
+        inpt_judul = requireView().findViewById(R.id.inpt_judul);
         final Bundle bundle = getArguments();
 
         if(bundle != null){
             isUpdate = true;
-            todoo = (Todo) getArguments().getSerializable("todo");
-            inptd.setText(todoo.getTodo());
-            inptdesc.setText(todoo.getDescription());
-            assert todoo != null;
+            note = (Note) getArguments().getSerializable("note");
+            inpt_judul.setText(note.getJudul());
+            inpt_kategori.setText(note.getKategori());
+            inpt_isi.setText(note.getIsi());
+            assert note != null;
         }
         final boolean finalIsUpdate = isUpdate;
         btnadd.setOnClickListener(view2 -> {
 
-            String tods = inptd.getText().toString();
-            String desc = inptdesc.getText().toString();
+            String judul = inpt_judul.getText().toString();
+            String kategori = inpt_kategori.getText().toString();
+            String isi = inpt_isi.getText().toString();
             if(finalIsUpdate){
-                  todoo.setTodo(tods);
-                  todoo.setDescription(desc);
-                  presenter.editTodo(todoo);
+                note.setJudul(judul);
+                note.setKategori(kategori);
+                note.setIsi(isi);
+                presenter.editTodo(note);
             }else{
-                Todo todo = new Todo();
-                todo.setTodo(inptd.getText().toString());
-                todo.setDescription(inptdesc.getText().toString());
+                Note note = new Note();
+                note.setJudul(judul);
+                note.setKategori(kategori);
+                note.setIsi(isi);
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = new Date();
-                todo.setTanggal(formatter.format(date));
-                todo.setDone(0);
-                presenter.saveTodo(todo);
+                note.setTanggal(formatter.format(date));
+                presenter.saveTodo(note);
             }
             dismiss();
         });
@@ -106,7 +100,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Tod
     }
 
     @Override
-    public void fetchTodo(List<Todo> items) {
+    public void fetchTodo(List<Note> items) {
 
     }
 }

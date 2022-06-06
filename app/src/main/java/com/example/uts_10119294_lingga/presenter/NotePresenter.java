@@ -2,24 +2,23 @@ package com.example.uts_10119294_lingga.presenter;
 
 
 import android.content.Context;
-import android.view.View;
 
-import com.example.uts_10119294_lingga.contract.TodoContract;
+import com.example.uts_10119294_lingga.contract.NoteContract;
 import com.example.uts_10119294_lingga.helpers.DatabaseHelper;
-import com.example.uts_10119294_lingga.interactor.TodoInteractorImpl;
-import com.example.uts_10119294_lingga.models.Todo;
+import com.example.uts_10119294_lingga.interactor.NoteInteractorImpl;
+import com.example.uts_10119294_lingga.models.Note;
 
-public class TodoPresenter implements TodoContract.Presenter {
-    private TodoContract.View v;
+public class NotePresenter implements NoteContract.Presenter {
+    private NoteContract.View v;
     private DatabaseHelper db;
-    private TodoInteractorImpl intr = new TodoInteractorImpl();
-    public TodoPresenter(TodoContract.View v, Context ctx){
+    private NoteInteractorImpl intr = new NoteInteractorImpl();
+    public NotePresenter(NoteContract.View v, Context ctx){
         this.v = v;
         this.db = new DatabaseHelper(ctx);
     }
     @Override
-    public void saveTodo(Todo todo) {
-        intr.addTodo(todo,db);
+    public void saveTodo(Note note) {
+        intr.addTodo(note,db);
         v.fetchTodo(intr.getAllTodo(db));
     }
 
@@ -35,8 +34,8 @@ public class TodoPresenter implements TodoContract.Presenter {
     }
 
     @Override
-    public void editTodo(Todo todo) {
-        intr.updateTodo(todo.getId(),todo,db);
+    public void editTodo(Note note) {
+        intr.updateTodo(note.getId(), note,db);
         v.fetchTodo(intr.getAllTodo(db));
     }
 }

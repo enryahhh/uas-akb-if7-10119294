@@ -1,6 +1,5 @@
 package com.example.uts_10119294_lingga.helpers;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,28 +7,25 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import androidx.annotation.Nullable;
-
-import com.example.uts_10119294_lingga.contract.TodoDBContract;
-import com.example.uts_10119294_lingga.contract.TodoDBContract.TodoSchema;
-import com.example.uts_10119294_lingga.models.Todo;
+import com.example.uts_10119294_lingga.contract.NotesDBContract.NoteSchema;
+import com.example.uts_10119294_lingga.models.Note;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "TodoDB.db";
+    public static final String DATABASE_NAME = "NotesDB.db";
     private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + TodoSchema.TABLE_NAME + " (" +
-                    TodoSchema._ID + " INTEGER PRIMARY KEY," +
-                    TodoSchema.COLUMN_NAME_TODO + " TEXT," +
-                    TodoSchema.COLUMN_NAME_TANGGAL + " TEXT," +
-                    TodoSchema.COLUMN_NAME_DESCRIPTION + " TEXT," +
-                    TodoSchema.COLUMN_NAME_ISDONE + " INTEGER)";
+            "CREATE TABLE " + NoteSchema.TABLE_NAME + " (" +
+                    NoteSchema._ID + " INTEGER PRIMARY KEY," +
+                    NoteSchema.COLUMN_NAME_JUDUL + " TEXT," +
+                    NoteSchema.COLUMN_NAME_TANGGAL + " TEXT," +
+                    NoteSchema.COLUMN_NAME_KATEGORI + " TEXT," +
+                    NoteSchema.COLUMN_NAME_ISI + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + TodoSchema.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + NoteSchema.TABLE_NAME;
     private SQLiteDatabase db;
 
     public DatabaseHelper(Context context) {
@@ -56,31 +52,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
     }
 
-    public void storeTodo(Todo todo){
+    public void storeNote(Note note){
         ContentValues cv = new ContentValues();
-        cv.put(TodoSchema.COLUMN_NAME_TODO,todo.getTodo());
-        cv.put(TodoSchema.COLUMN_NAME_TANGGAL,todo.getTanggal());
-        cv.put(TodoSchema.COLUMN_NAME_DESCRIPTION,todo.getDescription());
-        cv.put(TodoSchema.COLUMN_NAME_ISDONE,0);
-        db.insert(TodoSchema.TABLE_NAME,null,cv);
+        cv.put(NoteSchema.COLUMN_NAME_JUDUL, note.getJudul());
+        cv.put(NoteSchema.COLUMN_NAME_TANGGAL, note.getTanggal());
+        cv.put(NoteSchema.COLUMN_NAME_KATEGORI, note.getIsi());
+        cv.put(NoteSchema.COLUMN_NAME_ISI,note.getKategori());
+        db.insert(NoteSchema.TABLE_NAME,null,cv);
     }
 
-    public List<Todo> getAllTodo(){
-        List<Todo> todosDb = new ArrayList<>();
+    public List<Note> getAllNote(){
+        List<Note> todosDb = new ArrayList<>();
         Cursor cur = null;
         db.beginTransaction();
         try{
-            cur = db.query(TodoSchema.TABLE_NAME, null, null, null, null, null, null, null);
+            cur = db.query(NoteSchema.TABLE_NAME, null, null, null, null, null, null, null);
             if(cur != null){
                 if(cur.moveToFirst()){
                     do{
-                        Todo todo = new Todo();
-                        todo.setId(cur.getInt(cur.getColumnIndexOrThrow(BaseColumns._ID)));
-                        todo.setTodo(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_TODO)));
-                        todo.setTanggal(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_TANGGAL)));
-                        todo.setDescription(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_DESCRIPTION)));
-                        todo.setDone(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_ISDONE));
-                        todosDb.add(todo);
+                        Note note = new Note();
+                        note.setId(cur.getInt(cur.getColumnIndexOrThrow(BaseColumns._ID)));
+                        note.setJudul(cur.getString(cur.getColumnIndexOrThrow(NoteSchema.COLUMN_NAME_JUDUL)));
+                        note.setTanggal(cur.getString(cur.getColumnIndexOrThrow(NoteSchema.COLUMN_NAME_TANGGAL)));
+                        note.setKategori(cur.getString(cur.getColumnIndexOrThrow(NoteSchema.COLUMN_NAME_KATEGORI)));
+                        note.setIsi(cur.getString(cur.getColumnIndexOrThrow(NoteSchema.COLUMN_NAME_ISI)));
+                        todosDb.add(note);
                     }
                     while(cur.moveToNext());
                 }
@@ -94,15 +90,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return todosDb;
     }
 
-    public void updateTodo(int id,Todo todo){
+    public void updateNote(int id, Note note){
         ContentValues cv = new ContentValues();
-        cv.put(TodoSchema.COLUMN_NAME_TODO,todo.getTodo());
-        cv.put(TodoSchema.COLUMN_NAME_DESCRIPTION,todo.getDescription());
-        db.update(TodoSchema.TABLE_NAME,cv,BaseColumns._ID + "= ?", new String[] {String.valueOf(id)});
+        cv.put(NoteSchema.COLUMN_NAME_JUDUL, note.getJudul());
+        cv.put(NoteSchema.COLUMN_NAME_TANGGAL, note.getTanggal());
+        cv.put(NoteSchema.COLUMN_NAME_KATEGORI, note.getKategori());
+        cv.put(NoteSchema.COLUMN_NAME_ISI, note.getIsi());
+        db.update(NoteSchema.TABLE_NAME,cv,BaseColumns._ID + "= ?", new String[] {String.valueOf(id)});
     }
 
-    public void deleteTodo(int id){
+    public void deleteNote(int id){
         System.out.println("deleted todo helper : "+BaseColumns._ID);
-        db.delete(TodoSchema.TABLE_NAME, BaseColumns._ID + "= ?", new String[] {String.valueOf(id)});
+        db.delete(NoteSchema.TABLE_NAME, BaseColumns._ID + "= ?", new String[] {String.valueOf(id)});
     }
 }

@@ -1,29 +1,28 @@
 package com.example.uts_10119294_lingga.contract;
 
 import com.example.uts_10119294_lingga.helpers.DatabaseHelper;
-import com.example.uts_10119294_lingga.models.Todo;
-import android.view.View;
+import com.example.uts_10119294_lingga.models.Note;
 
 import java.util.List;
 
-public class TodoContract {
+public class NoteContract {
     public interface View{
         void showMessage(String message);
-        void fetchTodo(List<Todo> items);
+        void fetchTodo(List<Note> items);
     }
 
     public interface Interactor{
-        void addTodo(Todo todo,DatabaseHelper db);
-        List<Todo> getAllTodo(DatabaseHelper db);
+        void addTodo(Note note, DatabaseHelper db);
+        List<Note> getAllTodo(DatabaseHelper db);
         void deleteTodo(int id,DatabaseHelper db);
-        void updateTodo(int id,Todo todo,DatabaseHelper db);
+        void updateTodo(int id, Note note, DatabaseHelper db);
     }
 
     public interface Presenter{
-        void saveTodo(Todo todo);
+        void saveTodo(Note note);
         void loadTodo();
         void removeTodo(int id);
-        void editTodo(Todo todo);
+        void editTodo(Note note);
     }
 
 
