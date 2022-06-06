@@ -1,7 +1,9 @@
 package com.example.uts_10119294_lingga;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.uts_10119294_lingga.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DialogCloseListener {
 
     private ActivityMainBinding binding;
 
@@ -34,4 +36,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    public void handleDialogClose(DialogInterface dialogInterface) {
+
+    }
 }

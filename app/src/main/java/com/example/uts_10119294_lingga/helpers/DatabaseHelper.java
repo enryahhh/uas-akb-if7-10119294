@@ -75,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if(cur.moveToFirst()){
                     do{
                         Todo todo = new Todo();
-                        todo.setId(cur.getColumnIndex(BaseColumns._ID));
+                        todo.setId(cur.getInt(cur.getColumnIndexOrThrow(BaseColumns._ID)));
                         todo.setTodo(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_TODO)));
                         todo.setTanggal(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_TANGGAL)));
                         todo.setDescription(cur.getString(cur.getColumnIndexOrThrow(TodoSchema.COLUMN_NAME_DESCRIPTION)));
@@ -102,6 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void deleteTodo(int id){
+        System.out.println("deleted todo helper : "+BaseColumns._ID);
         db.delete(TodoSchema.TABLE_NAME, BaseColumns._ID + "= ?", new String[] {String.valueOf(id)});
     }
 }
