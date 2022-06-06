@@ -31,6 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tanggal"
+                android:textColor="@color/black"
+                android:textSize="16dp"
                 >
 
             </TextView>
@@ -62,11 +64,13 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit" />
+                android:backgroundTint="@color/green"
+                android:text="Ubah" />
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
                 android:text="Hapus" />
         </LinearLayout>
     </LinearLayout>
