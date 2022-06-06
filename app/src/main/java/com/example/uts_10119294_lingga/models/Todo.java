@@ -1,8 +1,9 @@
 package com.example.uts_10119294_lingga.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Todo {
+public class Todo implements Serializable {
     private int id,isDone;
     private String todo;
     private String tanggal;

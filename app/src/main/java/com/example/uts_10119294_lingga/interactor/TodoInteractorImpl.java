@@ -21,6 +21,13 @@ public class TodoInteractorImpl implements TodoContract.Interactor {
     }
 
     @Override
+    public void updateTodo(int id, Todo todo,DatabaseHelper db) {
+        db.openDb();
+        db.updateTodo(id,todo);
+        System.out.println("todo edit");
+    }
+
+    @Override
     public void deleteTodo(int id, DatabaseHelper db) {
         System.out.println("todo deleted");
         db.openDb();

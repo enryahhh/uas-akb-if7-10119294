@@ -4,9 +4,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
+import com.example.uts_10119294_lingga.views.fragments.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +19,7 @@ import com.example.uts_10119294_lingga.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity implements DialogCloseListener {
 
     private ActivityMainBinding binding;
+    private DashboardFragment df;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,11 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        df = (DashboardFragment) getSupportFragmentManager().findFragmentById(R.id.todoFrag);
+//        FragmentManager fm = getSupportFragmentManager();
+//        fm.beginTransaction().replace(R.id.todoFrag,DashboardFragment.class,null)
+//                .setReorderingAllowed(true).addToBackStack(null).commit();
+//        df = (DashboardFragment) fm.findFragmentById(R.id.todoFrag);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -38,6 +46,6 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     @Override
     public void handleDialogClose(DialogInterface dialogInterface) {
-
+        df.handleDialogClose(dialogInterface);
     }
 }

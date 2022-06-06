@@ -85,13 +85,13 @@ public class DashboardFragment extends Fragment implements TodoContract.View , D
     @Override
     public void fetchTodo(List<Todo> items) {
         todos = items;
-        adapter = new TodoAdapter(todos,presenter);
+        adapter = new TodoAdapter(todos,presenter,getChildFragmentManager());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void handleDialogClose(DialogInterface dialogInterface) {
-
+        adapter.notifyDataSetChanged();
     }
 }

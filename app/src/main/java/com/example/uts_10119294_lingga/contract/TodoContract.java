@@ -16,11 +16,14 @@ public class TodoContract {
         void addTodo(Todo todo,DatabaseHelper db);
         List<Todo> getAllTodo(DatabaseHelper db);
         void deleteTodo(int id,DatabaseHelper db);
+        void updateTodo(int id,Todo todo,DatabaseHelper db);
     }
 
     public interface Presenter{
         void saveTodo(Todo todo);
         void loadTodo();
+        void removeTodo(int id);
+        void editTodo(Todo todo);
     }
 
 

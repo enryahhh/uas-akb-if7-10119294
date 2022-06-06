@@ -20,6 +20,7 @@ public class TodoPresenter implements TodoContract.Presenter {
     @Override
     public void saveTodo(Todo todo) {
         intr.addTodo(todo,db);
+        v.fetchTodo(intr.getAllTodo(db));
     }
 
     @Override
@@ -27,7 +28,15 @@ public class TodoPresenter implements TodoContract.Presenter {
             v.fetchTodo(intr.getAllTodo(db));
     }
 
+    @Override
     public void removeTodo(int id){
         intr.deleteTodo(id,db);
+        v.fetchTodo(intr.getAllTodo(db));
+    }
+
+    @Override
+    public void editTodo(Todo todo) {
+        intr.updateTodo(todo.getId(),todo,db);
+        v.fetchTodo(intr.getAllTodo(db));
     }
 }
