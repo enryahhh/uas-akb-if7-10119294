@@ -7,7 +7,11 @@ import com.example.uts_10119294_lingga.models.Note;
 import java.util.List;
 
 public class NoteInteractorImpl implements NoteContract.Interactor {
-
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     @Override
     public void addTodo(Note note, DatabaseHelper db) {
         db.openDb();

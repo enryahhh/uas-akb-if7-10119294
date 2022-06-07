@@ -11,7 +11,11 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.example.uts_10119294_lingga.models.ModelObject;
 
 import java.util.List;
-
+/*
+* NIM : 10119294
+* NAMA : Lingga Juliansyah
+* Kelas : IF-7
+* */
 public class AboutPageAdapter extends PagerAdapter {
     private Context mContext;
     private String[] cobaText = {"1","2","3"};

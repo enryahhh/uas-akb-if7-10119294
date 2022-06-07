@@ -11,7 +11,11 @@ import androidx.fragment.app.Fragment;
 import com.example.uts_10119294_lingga.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
-
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

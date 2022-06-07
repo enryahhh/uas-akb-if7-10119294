@@ -26,7 +26,11 @@ import com.example.uts_10119294_lingga.presenter.NotePresenter;
 import java.util.List;
 
 public class DashboardFragment extends Fragment implements NoteContract.View , DialogCloseListener {
-
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private FragmentDashboardBinding binding;
     private RecyclerView recyclerView;
     private NoteAdapter adapter;

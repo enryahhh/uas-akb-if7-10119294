@@ -2,6 +2,11 @@ package com.example.uts_10119294_lingga.models;
 
 import java.io.Serializable;
 
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class Note implements Serializable {
     private int id;
     private String judul;

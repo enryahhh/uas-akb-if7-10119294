@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.uts_10119294_lingga.MainActivity;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class SplashActivity extends AppCompatActivity {
 
     @Override

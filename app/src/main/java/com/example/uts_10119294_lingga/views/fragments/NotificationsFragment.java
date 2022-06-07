@@ -15,7 +15,11 @@ import com.example.uts_10119294_lingga.adapter.AboutPageAdapter;
 import com.example.uts_10119294_lingga.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
-
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

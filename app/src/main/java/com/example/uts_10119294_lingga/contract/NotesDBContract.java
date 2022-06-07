@@ -1,7 +1,11 @@
 package com.example.uts_10119294_lingga.contract;
 
 import android.provider.BaseColumns;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public final class NotesDBContract {
         // To prevent someone from accidentally instantiating the contract class,
         // make the constructor private.

@@ -26,7 +26,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class BottomSheetDialog extends BottomSheetDialogFragment  implements NoteContract.View{
 
     private NotePresenter presenter;

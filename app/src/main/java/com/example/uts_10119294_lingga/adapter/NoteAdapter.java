@@ -20,7 +20,11 @@ import com.example.uts_10119294_lingga.views.fragments.BottomSheetDialog;
 
 import java.io.Serializable;
 import java.util.List;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder>{
     private List<Note> tes;
     private NotePresenter presenter;

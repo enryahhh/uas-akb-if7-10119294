@@ -8,7 +8,11 @@ import com.example.uts_10119294_lingga.contract.NoteContract;
 import com.example.uts_10119294_lingga.helpers.DatabaseHelper;
 import com.example.uts_10119294_lingga.interactor.NoteInteractorImpl;
 import com.example.uts_10119294_lingga.models.Note;
-
+/*
+ * NIM : 10119294
+ * NAMA : Lingga Juliansyah
+ * Kelas : IF-7
+ * */
 public class NotePresenter implements NoteContract.Presenter {
     private NoteContract.View v;
     private DatabaseHelper db;

@@ -24,7 +24,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.uts_10119294_lingga.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements DialogCloseListener {
-
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private ActivityMainBinding binding;
     private DashboardFragment df;
 
