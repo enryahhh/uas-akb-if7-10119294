@@ -5,13 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.uts_10119294_lingga.R;
 import com.example.uts_10119294_lingga.adapter.NoteAdapter;
 import com.example.uts_10119294_lingga.contract.NoteContract;
 
@@ -79,7 +82,7 @@ public class DashboardFragment extends Fragment implements NoteContract.View , D
 
     @Override
     public void showMessage(String message) {
-
+        System.out.println("INI CALL");
     }
 
     @Override
@@ -92,6 +95,13 @@ public class DashboardFragment extends Fragment implements NoteContract.View , D
 
     @Override
     public void handleDialogClose(DialogInterface dialogInterface) {
-        adapter.notifyDataSetChanged();
+//        DashboardFragment df = new DashboardFragment();
+//        FragmentManager fm = getChildFragmentManager();
+//        fm.beginTransaction().replace(R.id.todoFrag,DashboardFragment.class,null)
+//                .setReorderingAllowed(true).addToBackStack(null).commit();
+//        df.handleDialogClose(dialogInterface);
+        System.out.println("ini presenter df "+presenter);
+        presenter.loadTodo();
+        Toast.makeText(requireContext(), "Cobaa", Toast.LENGTH_SHORT).show();
     }
 }

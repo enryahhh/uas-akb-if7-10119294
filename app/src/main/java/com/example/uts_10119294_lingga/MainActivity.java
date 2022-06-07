@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
+import com.example.uts_10119294_lingga.contract.NoteContract;
 import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
 import com.example.uts_10119294_lingga.views.fragments.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -52,10 +54,13 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     @Override
     public void handleDialogClose(DialogInterface dialogInterface) {
+//        df = new DashboardFragment();
 //        FragmentManager fm = getSupportFragmentManager();
 //        fm.beginTransaction().replace(R.id.todoFrag,DashboardFragment.class,null)
 //                .setReorderingAllowed(true).addToBackStack(null).commit();
-//        df = (DashboardFragment) fm.findFragmentById(R.id.todoFrag);
+//        df.handleDialogClose(dialogInterface);
+//         df = (DashboardFragment) getSupportFragmentManager().findFragmentById(R.id.todoFrag);
+        Log.i("handle","hndl");
 //        System.out.println(df.toString());
 //        df.handleDialogClose(dialogInterface);
     }

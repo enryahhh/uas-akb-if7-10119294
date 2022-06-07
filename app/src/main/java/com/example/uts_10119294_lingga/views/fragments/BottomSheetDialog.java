@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.uts_10119294_lingga.MainActivity;
 import com.example.uts_10119294_lingga.R;
@@ -31,6 +33,9 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
     private EditText inpt_judul,inpt_kategori,inpt_isi;
     private Button btnadd;
     private Note note;
+    FragmentManager fragmentManager;
+    FragmentTransaction transaction;
+    DashboardFragment df;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable
             ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -53,6 +58,9 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         boolean isUpdate = false;
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        df = (DashboardFragment) fragmentManager.findFragmentById(R.id.todoFrag);
         inpt_judul = requireView().findViewById(R.id.inpt_judul);
         final Bundle bundle = getArguments();
 
@@ -93,11 +101,13 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         System.out.println("ini dismiss");
-        MainActivity act = (MainActivity) getActivity();
-        System.out.println(act.toString());
-        if(act instanceof DialogCloseListener)
-            System.out.println("yeee handle");
-            act.handleDialogClose(dialog);
+        DashboardFragment df = (DashboardFragment) getParentFragment();
+//        System.out.println(act.toString());
+        System.out.println(df);
+        df.handleDialogClose(dialog);
+//        if(act instanceof DialogCloseListener)
+//            System.out.println("yeee handle");
+//            act.handleDialogClose(dialog);
     }
 
     @Override
@@ -107,7 +117,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
 
     @Override
     public void fetchTodo(List<Note> items) {
-//        NoteAdapter np = new NoteAdapter(items,presenter,getChildFragmentManager());
-//        np.notifyDataSetChanged();
+        NoteAdapter np = new NoteAdapter(items,presenter,getParentFragmentManager());
+        np.notifyDataSetChanged();
     }
 }
