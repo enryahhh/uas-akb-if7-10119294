@@ -22,7 +22,7 @@ public class NotePresenter implements NoteContract.Presenter {
     public void saveTodo(Note note) {
         intr.addTodo(note,db);
         v.fetchTodo(intr.getAllTodo(db));
-        v.showMessage("tessss");
+        v.showMessage("Berhasil Menambahkan");
     }
 
     @Override
@@ -34,11 +34,13 @@ public class NotePresenter implements NoteContract.Presenter {
     public void removeTodo(int id){
         intr.deleteTodo(id,db);
         v.fetchTodo(intr.getAllTodo(db));
+        v.showMessage("Berhasil Menghapus");
     }
 
     @Override
     public void editTodo(Note note) {
         intr.updateTodo(note.getId(), note,db);
         v.fetchTodo(intr.getAllTodo(db));
+        v.showMessage("Berhasil Mengubah");
     }
 }

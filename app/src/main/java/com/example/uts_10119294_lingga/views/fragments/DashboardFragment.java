@@ -82,7 +82,7 @@ public class DashboardFragment extends Fragment implements NoteContract.View , D
 
     @Override
     public void showMessage(String message) {
-        System.out.println("INI CALL");
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -102,6 +102,6 @@ public class DashboardFragment extends Fragment implements NoteContract.View , D
 //        df.handleDialogClose(dialogInterface);
         System.out.println("ini presenter df "+presenter);
         presenter.loadTodo();
-        Toast.makeText(requireContext(), "Cobaa", Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.uts_10119294_lingga.views.fragments.HomeFragment"
-        android:label="@string/title_home"
+        android:label="Profile"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.uts_10119294_lingga.views.fragments.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="List Note"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.uts_10119294_lingga.views.fragments.NotificationsFragment"
-        android:label="About"
+        android:label="About Apps"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

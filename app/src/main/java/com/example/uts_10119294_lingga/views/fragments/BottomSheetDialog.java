@@ -60,10 +60,10 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
         boolean isUpdate = false;
         fragmentManager = getActivity().getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        df = (DashboardFragment) fragmentManager.findFragmentById(R.id.todoFrag);
+//        df = (DashboardFragment) fragmentManager.findFragmentById(R.id.todoFrag);
         inpt_judul = requireView().findViewById(R.id.inpt_judul);
         final Bundle bundle = getArguments();
-
+        df = (DashboardFragment) getParentFragment();
         if(bundle != null){
             isUpdate = true;
             note = (Note) getArguments().getSerializable("note");
@@ -101,7 +101,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         System.out.println("ini dismiss");
-        DashboardFragment df = (DashboardFragment) getParentFragment();
+
 //        System.out.println(act.toString());
         System.out.println(df);
         df.handleDialogClose(dialog);
@@ -112,7 +112,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
 
     @Override
     public void showMessage(String message) {
-        System.out.println("tes");
+        df.showMessage(message);
     }
 
     @Override
