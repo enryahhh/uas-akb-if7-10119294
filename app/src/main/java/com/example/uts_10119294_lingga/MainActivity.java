@@ -1,12 +1,17 @@
 package com.example.uts_10119294_lingga;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 
 import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
 import com.example.uts_10119294_lingga.views.fragments.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
@@ -27,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        df = (DashboardFragment) getSupportFragmentManager().findFragmentById(R.id.todoFrag);
+//        df = (DashboardFragment) getSupportFragmentManager().findFragmentById(R.id.todoFrag);
 //        FragmentManager fm = getSupportFragmentManager();
 //        fm.beginTransaction().replace(R.id.todoFrag,DashboardFragment.class,null)
 //                .setReorderingAllowed(true).addToBackStack(null).commit();
@@ -44,8 +49,14 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+
     @Override
     public void handleDialogClose(DialogInterface dialogInterface) {
-        df.handleDialogClose(dialogInterface);
+//        FragmentManager fm = getSupportFragmentManager();
+//        fm.beginTransaction().replace(R.id.todoFrag,DashboardFragment.class,null)
+//                .setReorderingAllowed(true).addToBackStack(null).commit();
+//        df = (DashboardFragment) fm.findFragmentById(R.id.todoFrag);
+//        System.out.println(df.toString());
+//        df.handleDialogClose(dialogInterface);
     }
 }

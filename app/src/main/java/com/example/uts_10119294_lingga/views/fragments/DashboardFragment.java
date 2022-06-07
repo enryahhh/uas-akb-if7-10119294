@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.uts_10119294_lingga.adapter.NoteAdapter;
 import com.example.uts_10119294_lingga.contract.NoteContract;
+
 import com.example.uts_10119294_lingga.databinding.FragmentDashboardBinding;
 import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
 import com.example.uts_10119294_lingga.models.Note;

@@ -12,8 +12,11 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.uts_10119294_lingga.MainActivity;
 import com.example.uts_10119294_lingga.R;
+import com.example.uts_10119294_lingga.adapter.NoteAdapter;
 import com.example.uts_10119294_lingga.contract.NoteContract;
+import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
 import com.example.uts_10119294_lingga.models.Note;
 import com.example.uts_10119294_lingga.presenter.NotePresenter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -90,9 +93,11 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         System.out.println("ini dismiss");
-//        MainActivity act = (MainActivity) getActivity();
-//        if(act instanceof DialogCloseListener)
-//            ((DialogCloseListener)act).handleDialogClose(dialog);
+        MainActivity act = (MainActivity) getActivity();
+        System.out.println(act.toString());
+        if(act instanceof DialogCloseListener)
+            System.out.println("yeee handle");
+            act.handleDialogClose(dialog);
     }
 
     @Override
@@ -102,6 +107,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment  implements Not
 
     @Override
     public void fetchTodo(List<Note> items) {
-
+//        NoteAdapter np = new NoteAdapter(items,presenter,getChildFragmentManager());
+//        np.notifyDataSetChanged();
     }
 }

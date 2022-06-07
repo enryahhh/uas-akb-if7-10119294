@@ -3,6 +3,7 @@ package com.example.uts_10119294_lingga.presenter;
 
 import android.content.Context;
 
+import com.example.uts_10119294_lingga.adapter.NoteAdapter;
 import com.example.uts_10119294_lingga.contract.NoteContract;
 import com.example.uts_10119294_lingga.helpers.DatabaseHelper;
 import com.example.uts_10119294_lingga.interactor.NoteInteractorImpl;
@@ -12,6 +13,7 @@ public class NotePresenter implements NoteContract.Presenter {
     private NoteContract.View v;
     private DatabaseHelper db;
     private NoteInteractorImpl intr = new NoteInteractorImpl();
+    private NoteAdapter noteAdapter;
     public NotePresenter(NoteContract.View v, Context ctx){
         this.v = v;
         this.db = new DatabaseHelper(ctx);
@@ -20,6 +22,7 @@ public class NotePresenter implements NoteContract.Presenter {
     public void saveTodo(Note note) {
         intr.addTodo(note,db);
         v.fetchTodo(intr.getAllTodo(db));
+        v.showMessage("tessss");
     }
 
     @Override

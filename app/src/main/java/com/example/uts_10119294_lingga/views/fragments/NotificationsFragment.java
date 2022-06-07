@@ -8,7 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.uts_10119294_lingga.R;
+import com.example.uts_10119294_lingga.adapter.AboutPageAdapter;
 import com.example.uts_10119294_lingga.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
@@ -20,9 +23,10 @@ public class NotificationsFragment extends Fragment {
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textNotifications;
-        textView.setText("NOTIF PAGE");
+        ViewPager viewPager = (ViewPager) binding.viewpager;
+        viewPager.setAdapter(new AboutPageAdapter(getContext()));
+//        final TextView textView = binding.textNotifications;
+//        textView.setText("NOTIF PAGE");
         return root;
     }
 
