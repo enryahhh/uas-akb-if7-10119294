@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "763631702612",
+    "project_id": "uas-10119294-lingga",
+    "storage_bucket": "uas-10119294-lingga.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763631702612:android:b199df1155daa8602f13c1",
+        "android_client_info": {
+          "package_name": "com.example.uts_10119294_lingga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763631702612-5ks9bh0irr6jcockdpgc31nqubsl747r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpeAISfy3q96HDT_83I97aA6DYyVIm5PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763631702612-5ks9bh0irr6jcockdpgc31nqubsl747r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
