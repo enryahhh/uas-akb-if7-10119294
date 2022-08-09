@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga;
+package com.example.uas_10119294_lingga;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.example.uts_10119294_lingga.contract.NoteContract;
-import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
-import com.example.uts_10119294_lingga.views.fragments.DashboardFragment;
+import com.example.uas_10119294_lingga.contract.NoteContract;
+import com.example.uas_10119294_lingga.helpers.DialogCloseListener;
+import com.example.uas_10119294_lingga.views.fragments.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +21,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.uts_10119294_lingga.databinding.ActivityMainBinding;
+import com.example.uas_10119294_lingga.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements DialogCloseListener {
     /*

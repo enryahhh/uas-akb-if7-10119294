@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.contract;
+package com.example.uas_10119294_lingga.contract;
 
 import android.provider.BaseColumns;
 /*

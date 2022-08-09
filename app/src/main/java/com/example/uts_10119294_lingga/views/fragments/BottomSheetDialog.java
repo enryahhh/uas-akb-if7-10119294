@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.example.uas_10119294_lingga.views.fragments;
 
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -14,13 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.uts_10119294_lingga.MainActivity;
-import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.adapter.NoteAdapter;
-import com.example.uts_10119294_lingga.contract.NoteContract;
-import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
-import com.example.uts_10119294_lingga.models.Note;
-import com.example.uts_10119294_lingga.presenter.NotePresenter;
+import com.example.uas_10119294_lingga.MainActivity;
+import com.example.uas_10119294_lingga.R;
+import com.example.uas_10119294_lingga.adapter.NoteAdapter;
+import com.example.uas_10119294_lingga.contract.NoteContract;
+import com.example.uas_10119294_lingga.helpers.DialogCloseListener;
+import com.example.uas_10119294_lingga.models.Note;
+import com.example.uas_10119294_lingga.presenter.NotePresenter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.text.SimpleDateFormat;

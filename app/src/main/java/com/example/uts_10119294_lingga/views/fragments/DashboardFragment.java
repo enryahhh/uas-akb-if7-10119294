@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.example.uas_10119294_lingga.views.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,14 +14,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.adapter.NoteAdapter;
-import com.example.uts_10119294_lingga.contract.NoteContract;
+import com.example.uas_10119294_lingga.R;
+import com.example.uas_10119294_lingga.adapter.NoteAdapter;
+import com.example.uas_10119294_lingga.contract.NoteContract;
 
-import com.example.uts_10119294_lingga.databinding.FragmentDashboardBinding;
-import com.example.uts_10119294_lingga.helpers.DialogCloseListener;
-import com.example.uts_10119294_lingga.models.Note;
-import com.example.uts_10119294_lingga.presenter.NotePresenter;
+import com.example.uas_10119294_lingga.databinding.FragmentDashboardBinding;
+import com.example.uas_10119294_lingga.helpers.DialogCloseListener;
+import com.example.uas_10119294_lingga.models.Note;
+import com.example.uas_10119294_lingga.presenter.NotePresenter;
 
 import java.util.List;
 

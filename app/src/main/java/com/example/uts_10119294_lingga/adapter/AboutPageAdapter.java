@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.adapter;
+package com.example.uas_10119294_lingga.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.uts_10119294_lingga.models.ModelObject;
+import com.example.uas_10119294_lingga.models.ModelObject;
 
 import java.util.List;
 /*

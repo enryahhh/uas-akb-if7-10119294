@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.models;
+package com.example.uas_10119294_lingga.models;
 
 import java.io.Serializable;
 

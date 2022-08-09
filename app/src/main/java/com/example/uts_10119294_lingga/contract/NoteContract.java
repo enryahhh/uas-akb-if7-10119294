@@ -1,7 +1,7 @@
-package com.example.uts_10119294_lingga.contract;
+package com.example.uas_10119294_lingga.contract;
 
-import com.example.uts_10119294_lingga.helpers.DatabaseHelper;
-import com.example.uts_10119294_lingga.models.Note;
+import com.example.uas_10119294_lingga.helpers.DatabaseHelper;
+import com.example.uas_10119294_lingga.models.Note;
 
 import java.util.List;
 /*

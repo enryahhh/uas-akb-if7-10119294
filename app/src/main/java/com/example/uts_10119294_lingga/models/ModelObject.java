@@ -1,6 +1,6 @@
-package com.example.uts_10119294_lingga.models;
+package com.example.uas_10119294_lingga.models;
 
-import com.example.uts_10119294_lingga.R;
+import com.example.uas_10119294_lingga.R;
 
 public enum ModelObject {
     /*

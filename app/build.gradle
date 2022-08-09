@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.uts_10119294_lingga"
+        applicationId "com.example.uas_10119294_lingga"
         minSdk 23
         targetSdk 31
         versionCode 1

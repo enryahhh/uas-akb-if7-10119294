@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.adapter;
+package com.example.uas_10119294_lingga.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,10 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.models.Note;
-import com.example.uts_10119294_lingga.presenter.NotePresenter;
-import com.example.uts_10119294_lingga.views.fragments.BottomSheetDialog;
+import com.example.uas_10119294_lingga.R;
+import com.example.uas_10119294_lingga.models.Note;
+import com.example.uas_10119294_lingga.presenter.NotePresenter;
+import com.example.uas_10119294_lingga.views.fragments.BottomSheetDialog;
 
 import java.io.Serializable;
 import java.util.List;

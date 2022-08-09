@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.example.uas_10119294_lingga.views.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.uts_10119294_lingga.databinding.FragmentHomeBinding;
+import com.example.uas_10119294_lingga.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
     /*

@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.views.fragments;
+package com.example.uas_10119294_lingga.views.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.uts_10119294_lingga.R;
-import com.example.uts_10119294_lingga.adapter.AboutPageAdapter;
-import com.example.uts_10119294_lingga.databinding.FragmentNotificationsBinding;
+import com.example.uas_10119294_lingga.R;
+import com.example.uas_10119294_lingga.adapter.AboutPageAdapter;
+import com.example.uas_10119294_lingga.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
     /*

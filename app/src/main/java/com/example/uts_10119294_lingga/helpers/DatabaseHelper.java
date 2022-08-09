@@ -1,4 +1,4 @@
-package com.example.uts_10119294_lingga.helpers;
+package com.example.uas_10119294_lingga.helpers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import com.example.uts_10119294_lingga.contract.NotesDBContract.NoteSchema;
-import com.example.uts_10119294_lingga.models.Note;
+import com.example.uas_10119294_lingga.contract.NotesDBContract.NoteSchema;
+import com.example.uas_10119294_lingga.models.Note;
 
 import java.util.ArrayList;
 import java.util.List;
