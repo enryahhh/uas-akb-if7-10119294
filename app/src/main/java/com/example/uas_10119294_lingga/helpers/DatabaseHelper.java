@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "NotesDB.db";
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + NoteSchema.TABLE_NAME + " (" +
-                    NoteSchema._ID + " INTEGER PRIMARY KEY," +
+                    NoteSchema._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     NoteSchema.COLUMN_NAME_JUDUL + " TEXT," +
                     NoteSchema.COLUMN_NAME_TANGGAL + " TEXT," +
                     NoteSchema.COLUMN_NAME_KATEGORI + " TEXT," +
