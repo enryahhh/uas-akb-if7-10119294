@@ -24,14 +24,12 @@ public class HomeFragment extends Fragment {
      * Kelas : IF-7
      * */
     private FragmentHomeBinding binding;
-    private Button logout;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        
-        logout = binding.btnLogout;
+
 //        textView.setText("Home");
         return root;
     }
@@ -39,29 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        logout.setOnClickListener(view1 -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-            builder.setTitle("LOGOUT");
-            builder.setMessage("Anda yakin akan melakukan logout?");
-            builder.setPositiveButton("Ya",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            FirebaseAuth.getInstance().signOut();
-                            Intent intent = new Intent(getActivity(), LoginActivity.class);
-                            startActivity(intent);
-                            getActivity().finish();
-                        }
-                    });
-            builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
 
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        });
     }
 
     @Override

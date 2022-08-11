@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private TextView txtNama;
+    private TextView txtNama,txtLogin;
     private TextView txtEmail;
     private TextView txtPassword;
     private TextView txtConfirmPass;
@@ -45,8 +45,13 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegis);
         progressbar = findViewById(R.id.progressBar2);
         linearLayout = findViewById(R.id.linearLayout);
+        txtLogin = findViewById(R.id.txtLogin);
 
         btnRegister.setOnClickListener(view -> registerUser());
+        txtLogin.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void registerUser(){
@@ -102,7 +107,8 @@ public class RegisterActivity extends AppCompatActivity {
             txtPassword.setError(null);
         }
         if(!TextUtils.equals(password,confPassword)){
-            txtPassword.setError("passwod tidak sama");
+            Toast.makeText(RegisterActivity.this, "Konfirmasi password tidak sesuai!",
+                    Toast.LENGTH_SHORT).show();
             valid = false;
         }
         return valid;
