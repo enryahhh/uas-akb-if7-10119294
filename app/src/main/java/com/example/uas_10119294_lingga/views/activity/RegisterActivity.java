@@ -24,6 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
+    /*
+     * NIM : 10119294
+     * NAMA : Lingga Juliansyah
+     * Kelas : IF-7
+     * */
     private FirebaseAuth mAuth;
     private TextView txtNama,txtLogin;
     private TextView txtEmail;
