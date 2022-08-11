@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Ini adalah aplikasi CRUD NOTES dengan Sqlite"
+        android:text="Ini adalah aplikasi CRUD NOTES dengan Sqlite dan auth dengan Firebase"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

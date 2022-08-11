@@ -62,8 +62,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(NoteSchema.COLUMN_NAME_JUDUL, note.getJudul());
         cv.put(NoteSchema.COLUMN_NAME_TANGGAL, note.getTanggal());
-        cv.put(NoteSchema.COLUMN_NAME_KATEGORI, note.getIsi());
-        cv.put(NoteSchema.COLUMN_NAME_ISI,note.getKategori());
+        cv.put(NoteSchema.COLUMN_NAME_KATEGORI, note.getKategori());
+        cv.put(NoteSchema.COLUMN_NAME_ISI,note.getIsi());
         db.insert(NoteSchema.TABLE_NAME,null,cv);
     }
 

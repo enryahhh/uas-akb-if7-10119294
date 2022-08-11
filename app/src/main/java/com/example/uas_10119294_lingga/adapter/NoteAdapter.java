@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import java.util.List;
  * Kelas : IF-7
  * */
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder>{
-    private List<Note> tes;
+    private List<Note> noteList;
     private NotePresenter presenter;
     private FragmentManager fm;
     public class NoteViewHolder extends RecyclerView.ViewHolder {
@@ -44,7 +45,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private final int mItemCount;
 
     public NoteAdapter(List<Note> items, NotePresenter presenter, FragmentManager fm) {
-        tes = items;
+        noteList = items;
         mItemCount = items.size();
         this.presenter = presenter;
         this.fm = fm;
@@ -67,13 +68,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        Note note = tes.get(position);
+        Note note = noteList.get(position);
         holder.text_judul.setText(note.getJudul());
         holder.text_tgl.setText(note.getTanggal());
         holder.text_kategori.setText(note.getKategori());
         holder.text_isi.setText(note.getIsi());
         System.out.println(note.getTanggal());
-
+        Log.i("NOTE",note.toString());
         holder.itemView.findViewById(R.id.btn_delete).setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
             builder.setTitle("Hapus Catatan");
@@ -116,7 +117,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     }
 
     public void setTodoList(List<Note> notes){
-        this.tes = notes;
+        this.noteList = notes;
         notifyDataSetChanged();
     }
 }

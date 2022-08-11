@@ -55,4 +55,14 @@ public class Note implements Serializable {
         this.isi = isi;
     }
 
+    @Override
+    public String toString(){
+        return "Note{" +
+                " judul='" + judul +
+                ", kategori='" + kategori  +
+                ", isi='" + isi  +
+                ", tanggal='" + tanggal  +
+                '}';
+    }
+
 }
